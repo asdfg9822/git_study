@@ -17,7 +17,7 @@ git checkout [브랜치명]
 git checkout -b [브랜치명]
 ```
 
-checkout을 하기 위해서는 커밋되지 않은 수정사항을 커밋(commit), 임시보관(stash), (discard)
+> checkout을 하기 위해서는 커밋되지 않은 수정사항을 커밋(commit), 임시보관(stash), 폐기(discard) 해야 한다
 
 ### git stash
 
