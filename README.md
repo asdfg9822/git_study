@@ -4,6 +4,21 @@ git 작업을 위한 최소한의 사용법/명령어 정리
 
 ### git branch
 
+브랜치 생성
+```
+git branch [브랜치명]
+```
+
+존재하는 브랜치 리스트
+```
+git branch
+```
+
+브랜치 삭제
+```
+git branch -d [브랜치명]
+```
+
 ### git checkout
 
 checkout 명령어로 브랜치를 변경할 수 있다.
@@ -17,12 +32,19 @@ git checkout [브랜치명]
 git checkout -b [브랜치명]
 ```
 
-> checkout을 하기 위해서는 커밋되지 않은 수정사항을 커밋(commit), 임시보관(stash), 폐기(discard) 해야 한다
+> checkout을 하기 위해서는 커밋되지 않은 수정사항을 커밋(commit), 임시보관(stash), 폐기(discard) 해야 한다.
+
+> 테스트 결과 staged file의 경우 전환할 브랜치에서 동일 파일의 수정이 없으면 전환이 잘된다. stash를 사용하지 않는다면 staged, unstaged 2개의 파일 모두 브랜치 전환시 유지되었다.
+
+> stash 명령어를 쓰면 staged file은 모두 백업되어 보이지 않는다. unstaged file은 유지되었다.
+
 
 ### git stash
 
 작업 중 다른 브랜치로 교체해야하는 경우 작업 중인 파일들을 stash 명령어로 임시보관 할 수 있다.
 해당 작업들에 대한 기록이 stashing area로 보관되며 스택 형태로 쌓이게 된다.
+
+
 
 작업중인 파일 stash
 ```
