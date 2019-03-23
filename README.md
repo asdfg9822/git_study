@@ -1,5 +1,54 @@
 # git_study
 
+git 작업을 위한 최소한의 사용법/명령어 정리
+
+### git branch
+
+### git checkout
+
+checkout 명령어로 브랜치를 변경할 수 있다.
+
+```
+git checkout [브랜치명]
+```
+
+브랜치가 없다면 -b 옵션으로 브랜치를 생성함과 동시에 브랜치를 변경할 수 있다.
+```
+git checkout -b [브랜치명]
+```
+
+checkout을 하기 위해서는 커밋되지 않은 수정사항을 커밋(commit), 임시보관(stash), (discard)
+
+### git stash
+
+작업 중 다른 브랜치로 교체해야하는 경우 작업 중인 파일들을 stash 명령어로 임시보관 할 수 있다.
+해당 작업들에 대한 기록이 stashing area로 보관되며 스택 형태로 쌓이게 된다.
+
+작업중인 파일 stash
+```
+git stash
+```
+
+stash 리스트 보기
+```
+git stash list
+```
+
+보관된 stash 적용 (작업파일을 staged 상태로 변경시키지 않음)
+```
+git stash apply
+```
+
+보관된 stash 적용 (작업파일을 staged 상태로 변경)
+```
+git stash apply --index
+```
+
+stash를 적용한 브랜치 생성
+```
+git stash branch [브랜치명]
+```
+
 ### 태그 생성하기
 
 git의 태그 생성 방식에는 lightweigth 태그와 annotated 태그 2가지가 있다. lightweight 태그는 커밋의 포인터이다.
@@ -17,7 +66,7 @@ git push [원격저장소명] [태그명]
 git push [원격저장소명] [로컬브랜치명] --tags
 ```
 
-github의 경우 릴리즈 탭에 자동으로 추가되며, 바로 소스코드를 다운받을 수도 있다.
+github/gitlab의 경우 릴리즈 탭에 자동으로 추가되며, 바로 소스코드를 다운받을 수도 있다.
 추가적인 릴리즈 메시지를 작성할 수 있고 추가적인 첨부파일을 올릴 수 있다.
 
 ![Github Tag Test](/image/github_tag_test_img.png)
