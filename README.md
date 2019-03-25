@@ -2,6 +2,46 @@
 
 git 작업을 위한 최소한의 사용법/명령어 정리
 
+### Git 초기 계정 설정
+
+전역 설정
+```
+git config --global user.name "계정이름"
+git config --global user.email "이메일"
+```
+
+저장소별 설정
+```
+git config user.name "계정이름"
+git config user.email "이메일"
+```
+
+설정 조회
+```
+git config --global --list
+```
+
+저장소별 설정 조회
+```
+git config --list
+```
+
+### 새로운 저장소 초기화
+
+```
+git init
+```
+
+### 저장소 복제하기
+```
+git clone [저장소 URL]
+```
+
+### 새로운 원격 저장소 추가하기
+```
+git remote add [원격저장소 [저장소 URL]
+```
+
 ### git branch
 
 브랜치 생성
