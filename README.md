@@ -33,7 +33,7 @@ git init
 ```
 
 ### 저장소 복제하기
-```gi
+```
 git clone [저장소 URL]
 ```
 
