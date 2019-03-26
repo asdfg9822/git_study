@@ -159,10 +159,41 @@ tag 추가 등은 나오지 않고 merge, commit 등의 이력만 나온다
 git log
 ```
 
+4개만 출력하기
+```
+git log -4
+```
+
+한줄로 출력하기 (간단정보만)
+```
+git log --oneline
+```
+
+그래프 출력 (oneline 옵션 추가해야 보기 좋음)
+```
+git log --oneline --graph
+
+출력 결과
+*   4ad69b1
+|\
+| * 97c3244 Git 명령어 추가
+* | 111c917 Git 명령어 추가
+|/
+*   2e5a1db Merge remote-tracking branch 'origin/master'
+|\
+| * 726030a Git 명령어 추가
+```
+
 ### 로컬 파일 되돌리기
 실수로 무언가 잘못한 경우, 아래 명령으로 로컬의 변경 내용을 되돌릴 수 있다 ( 로컬의 변경 내용을 변경 전 상태(HEAD)로 되돌림 )
+만약 파일이 staged 상태라면 reset이용하여 staged 상태를 초기화 한 후 이용해야 한다.
 ```
-git checkout [파일명]
+git checkout -- [파일명/폴더명]
+```
+
+전체 되돌리기
+```
+git checkout -- .
 ```
 
 ### 원격 저장소의 데이터를 로컬에 가져오기만 하기
@@ -177,5 +208,24 @@ git pull
 ```
 
 ### Reset과 Revert
-reset의 경우 과거 커밋으로 이동하고자 할 때 사용한다. soft, hard, mixed 세가지의 옵션이 존재하는데
-hard의 경우 과거로 돌아가고 돌아간 이후의 커밋이력을 모두 삭제한다. soft의 경우 과거로 돌아가지만 이후의 내용은 그대로 유지된다.
+reset의 경우 과거 커밋으로 이동하고자 할 때 사용한다. 돌아가고 돌아간 이후의 커밋이력을 모두 삭제한다.
+- hard 옵션 : working directory의 내용까지 모두 바꾸는 방법 (테스트 결과 hard 옵션의 경우 특정 파일/폴더를 지정해서 사용할 수 없다.)
+- mixed 옵션 : (Default) working diretory의 내용은 그대로 유지
+- soft 옵션 : staging area 까지 올라간 상태로 바꾸는 옵션
+
+Revert의 경우에는 reset과 같이 특정 버전으로 되돌아갈 수 있지만, 되돌린 버전 이후의 버전들의 이력이 남아있다.
+
+reset의 경우 방금 병한한 것을 취소할 때 사용할 수 있다. Revert의 경우 조금 시간이 지난 병합을 취소하고 싶을때 사용할 수 있다.
+
+```
+*   4ad69b1
+|\
+| * 97c3244 Git 명령어 추가
+* | 111c917 Git 명령어 추가
+|/
+*   2e5a1db Merge remote-tracking branch 'origin/master'
+|\
+| * 726030a Git 명령어 추가
+```
+
+위와 같이 그래프가 있을 때 mainline 옵션을 이용해서 mainline(주축)을 설정할 수 있다.
