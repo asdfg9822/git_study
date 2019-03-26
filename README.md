@@ -228,4 +228,24 @@ reset의 경우 방금 병한한 것을 취소할 때 사용할 수 있다. Reve
 | * 726030a Git 명령어 추가
 ```
 
-위와 같이 그래프가 있을 때 mainline 옵션을 이용해서 mainline(주축)을 설정할 수 있다.
+(TODO, 안됨) 위와 같이 그래프가 있을 때 mainline 옵션을 이용해서 mainline(주축)을 설정할 수 있다.
+```
+git revert --mainline 1 [커밋ID]
+```
+
+### untracked 파일/디렉토리 모두 삭제하기
+
+untracked 파일 모두 삭제하기
+```
+git clean -f
+```
+
+untracked 파일&폴더 모두 삭제하기
+```
+git clean -fd
+```
+
+미리 확인하기
+```
+git clean --dry-run
+```
